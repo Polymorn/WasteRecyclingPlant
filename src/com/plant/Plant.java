@@ -10,26 +10,24 @@ import com.plant.recycle.Resolver;
 
 public class Plant {
 
-    private Container garbageContainer = new GarbageContainer();
-    private Handler handler = new Handler();
-    private Resolver resolver = new Resolver(handler);
+    private Container garbageContainer;
+    private Handler handler;
+    private Resolver resolver;
 
     public void work() {
         initialize();
         resolver.resolve(garbageContainer);
         handler.recycle();
-
-        Container productGlass = handler.getGlassContainer();
-        Container productPaper = handler.getPaperContainer();
-        Container productPlastic = handler.getPlasticContainer();
-        System.out.println(productGlass.toString() + "\n" + productPaper.toString() + "\n" + productPlastic.toString());
     }
 
     public void initialize() {
+        garbageContainer = new GarbageContainer();
+        handler = new Handler();
+        resolver = new Resolver(handler);
         garbageContainer.add(new Glass(30));
         garbageContainer.add(new Plastic(14));
         garbageContainer.add(new Paper(10));
-        System.out.println(garbageContainer);
+        System.out.println("Plant: Incoming new garbage container: \n" + garbageContainer);
 
     }
 }

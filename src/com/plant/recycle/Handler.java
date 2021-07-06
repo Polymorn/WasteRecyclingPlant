@@ -44,36 +44,42 @@ public class Handler {
     }
 
     private void recycleGlass() {
+        System.out.println("Handler: Recycling glass...");
         int outWeight = 0;
         for (Glass glass : inputGlassList) {
-            outWeight += glass.getWeight() / compressionGlassRatio;
-            glass.setWeight(glass.getWeight()/compressionGlassRatio);
+            glass.setWeight(glass.getWeight() / compressionGlassRatio);
+            outWeight += glass.getWeight();
         }
         glassContainer = new GlassContainer();
         glassContainer.setMaterials(inputGlassList);
         glassContainer.setWeight(outWeight);
+        System.out.println("Handler: Output glass\n" + glassContainer);
     }
 
     private void recyclePaper() {
+        System.out.println("Handler: Recycling paper...");
         int outWeight = 0;
         for (Paper paper : inputPaperList) {
-            outWeight += paper.getWeight() / compressionPaperRatio;
-            paper.setWeight(paper.getWeight()/compressionGlassRatio);
+            paper.setWeight(paper.getWeight() / compressionGlassRatio);
+            outWeight += paper.getWeight();
         }
         paperContainer = new PaperContainer();
         paperContainer.setMaterials(inputPaperList);
         paperContainer.setWeight(outWeight);
+        System.out.println("Handler: Output paper\n" + paperContainer);
     }
 
     private void recyclePlastic() {
+        System.out.println("Handler: Recycling plastic...");
         int outWeight = 0;
         for (Plastic plastic : inputPlasticList) {
-            outWeight += plastic.getWeight() / compressionPlasticRatio;
-            plastic.setWeight(plastic.getWeight()/compressionGlassRatio);
+            plastic.setWeight(plastic.getWeight() / compressionGlassRatio);
+            outWeight += plastic.getWeight();
         }
         plasticContainer = new PlasticContainer();
         plasticContainer.setMaterials(inputPlasticList);
         plasticContainer.setWeight(outWeight);
+        System.out.println("Handler: Output plastic \n" + plasticContainer);
     }
 
     public void inputGlass(Glass glass) {

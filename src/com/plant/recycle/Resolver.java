@@ -10,11 +10,12 @@ public class Resolver {
 
     private Handler handler;
 
-    public Resolver(Handler handler){
+    public Resolver(Handler handler) {
         this.handler = handler;
     }
 
     public <MATERIAL extends Material> void resolve(Container<MATERIAL> container) {
+        System.out.println("Resolver: Define a handler for each waste type...");
         for (MATERIAL material : container.getMaterials()) {
             if (material.getClass().equals(Glass.class)) {
                 handler.inputGlass((Glass) material);
@@ -23,7 +24,7 @@ public class Resolver {
             } else if (material.getClass().equals(Plastic.class)) {
                 handler.inputPlastic((Plastic) material);
             } else {
-                System.out.println("Resolver can't define handler type");
+                System.out.println("Resolver: Can't define a handler");
             }
         }
     }

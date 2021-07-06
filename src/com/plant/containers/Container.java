@@ -48,7 +48,7 @@ public abstract class Container<MATERIAL extends Material> {
 
     @Override
     public String toString() {
-        return "Container {" +
+        return "\tContainer {" +
                 "materials=" + materials +
                 "} FULL WEIGHT=" + weight;
     }
