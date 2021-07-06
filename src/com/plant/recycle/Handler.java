@@ -60,7 +60,7 @@ public class Handler {
         System.out.println("Handler: Recycling paper...");
         int outWeight = 0;
         for (Paper paper : inputPaperList) {
-            paper.setWeight(paper.getWeight() / compressionGlassRatio);
+            paper.setWeight(paper.getWeight() / compressionPaperRatio);
             outWeight += paper.getWeight();
         }
         paperContainer = new PaperContainer();
@@ -73,7 +73,7 @@ public class Handler {
         System.out.println("Handler: Recycling plastic...");
         int outWeight = 0;
         for (Plastic plastic : inputPlasticList) {
-            plastic.setWeight(plastic.getWeight() / compressionGlassRatio);
+            plastic.setWeight(plastic.getWeight() / compressionPlasticRatio);
             outWeight += plastic.getWeight();
         }
         plasticContainer = new PlasticContainer();
