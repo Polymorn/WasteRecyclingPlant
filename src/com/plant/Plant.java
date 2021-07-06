@@ -3,6 +3,7 @@ package com.plant;
 import com.plant.containers.Container;
 import com.plant.containers.GarbageContainer;
 import com.plant.materials.Glass;
+import com.plant.materials.Material;
 import com.plant.materials.Paper;
 import com.plant.materials.Plastic;
 import com.plant.recycle.Handler;
@@ -16,6 +17,12 @@ public class Plant {
 
     public void work() {
         initialize();
+
+        garbageContainer.add(new Glass(30));
+        garbageContainer.add(new Plastic(14));
+        garbageContainer.add(new Paper(10));
+        System.out.println("Plant: Incoming new garbage container: \n" + garbageContainer);
+
         resolver.resolve(garbageContainer);
         handler.recycle();
     }
@@ -24,10 +31,6 @@ public class Plant {
         garbageContainer = new GarbageContainer();
         handler = new Handler();
         resolver = new Resolver(handler);
-        garbageContainer.add(new Glass(30));
-        garbageContainer.add(new Plastic(14));
-        garbageContainer.add(new Paper(10));
-        System.out.println("Plant: Incoming new garbage container: \n" + garbageContainer);
 
     }
 }
