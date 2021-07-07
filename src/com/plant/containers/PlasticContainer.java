@@ -1,5 +1,7 @@
 package com.plant.containers;
 
-public class PlasticContainer extends Container {
+import com.plant.materials.Material;
+
+public class PlasticContainer<Plastic extends Material> extends Container {
 
 }
