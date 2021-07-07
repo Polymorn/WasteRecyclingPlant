@@ -5,6 +5,7 @@ import com.plant.materials.Glass;
 import com.plant.materials.Material;
 import com.plant.materials.Paper;
 import com.plant.materials.Plastic;
+import com.plant.terminal.ConsoleColors;
 
 public class GarbageSorter {
 
@@ -15,7 +16,7 @@ public class GarbageSorter {
     }
 
     public <MATERIAL extends Material> void sort(Container<MATERIAL> container) {
-        System.out.println("\nGarbage sorter: Sorting garbage into three different heaps...");
+        System.out.println(ConsoleColors.ANSI_GREEN + "\nGarbage sorter:" + ConsoleColors.ANSI_RESET + " Sorting garbage into three different heaps...");
         for (MATERIAL material : container.getMaterials()) {
             if (material.getClass().equals(Glass.class)) {
                 compressor.inputGlass((Glass) material);

@@ -5,6 +5,7 @@ import com.plant.materials.Glass;
 import com.plant.materials.Material;
 import com.plant.materials.Paper;
 import com.plant.materials.Plastic;
+import com.plant.terminal.ConsoleColors;
 
 public class Resolver {
 
@@ -21,7 +22,7 @@ public class Resolver {
     }
 
     public <MATERIAL extends Material> void resolve(Container<MATERIAL> container) {
-        System.out.println("\nResolver: Define a handler for each waste type...");
+        System.out.println(ConsoleColors.ANSI_PURPLE + "\nResolver:" + ConsoleColors.ANSI_RESET + " Define a handler for each waste type...");
         for (MATERIAL material : container.getMaterials()) {
             if (material.getClass().equals(Glass.class)) {
                 glassHandler.addToRecycle((Glass) material);
@@ -30,7 +31,7 @@ public class Resolver {
             } else if (material.getClass().equals(Plastic.class)) {
                 plasticHandler.addToRecycle((Plastic) material);
             } else {
-                System.out.println("Resolver: Can't define a handler for this waste type");
+                System.out.println(ConsoleColors.ANSI_PURPLE + "Resolver: " + ConsoleColors.ANSI_RESET + "Can't define a handler for this waste type");
             }
         }
         glassHandler.recycle();

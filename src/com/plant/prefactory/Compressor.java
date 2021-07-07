@@ -6,6 +6,7 @@ import com.plant.containers.PlasticContainer;
 import com.plant.materials.Glass;
 import com.plant.materials.Paper;
 import com.plant.materials.Plastic;
+import com.plant.terminal.ConsoleColors;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,14 +39,14 @@ public class Compressor {
     private final int compressionPlasticRatio = 3;
 
     public void compress() {
-        System.out.println("\nCompressor: Initialize");
+        System.out.println(ConsoleColors.ANSI_BLUE + "\nCompressor: " + ConsoleColors.ANSI_RESET + "Initialize");
         recycleGlass();
         recyclePaper();
         recyclePlastic();
     }
 
     private void recycleGlass() {
-        System.out.println("Compressor: Compressing glass...");
+        System.out.println(ConsoleColors.ANSI_BLUE + "Compressor: " + ConsoleColors.ANSI_RESET + "Compressing glass...");
         int outWeight = 0;
         for (Glass glass : inputGlassList) {
             glass.setWeight(glass.getWeight() / compressionGlassRatio);
@@ -54,11 +55,11 @@ public class Compressor {
         glassContainer = new GlassContainer();
         glassContainer.setMaterials(inputGlassList);
         glassContainer.setWeight(outWeight);
-        System.out.println("Compressor: Output glass container\n" + glassContainer);
+        System.out.println(ConsoleColors.ANSI_BLUE + "Compressor: " + ConsoleColors.ANSI_RESET + "Output glass container\n" + glassContainer);
     }
 
     private void recyclePaper() {
-        System.out.println("Compressor: Compressing paper...");
+        System.out.println(ConsoleColors.ANSI_BLUE + "Compressor: " + ConsoleColors.ANSI_RESET + "Compressing paper...");
         int outWeight = 0;
         for (Paper paper : inputPaperList) {
             paper.setWeight(paper.getWeight() / compressionPaperRatio);
@@ -67,11 +68,11 @@ public class Compressor {
         paperContainer = new PaperContainer();
         paperContainer.setMaterials(inputPaperList);
         paperContainer.setWeight(outWeight);
-        System.out.println("Compressor: Output paper container\n" + paperContainer);
+        System.out.println(ConsoleColors.ANSI_BLUE + "Compressor: " + ConsoleColors.ANSI_RESET + "Output paper container\n" + paperContainer);
     }
 
     private void recyclePlastic() {
-        System.out.println("Compressor: Compressing plastic...");
+        System.out.println(ConsoleColors.ANSI_BLUE + "Compressor: " + ConsoleColors.ANSI_RESET + "Compressing plastic...");
         int outWeight = 0;
         for (Plastic plastic : inputPlasticList) {
             plastic.setWeight(plastic.getWeight() / compressionPlasticRatio);
@@ -80,7 +81,7 @@ public class Compressor {
         plasticContainer = new PlasticContainer();
         plasticContainer.setMaterials(inputPlasticList);
         plasticContainer.setWeight(outWeight);
-        System.out.println("Compressor: Output plastic container \n" + plasticContainer);
+        System.out.println(ConsoleColors.ANSI_BLUE + "Compressor: " + ConsoleColors.ANSI_RESET + "Output plastic container \n" + plasticContainer);
     }
 
     public void inputGlass(Glass glass) {

@@ -3,6 +3,7 @@ package com.plant.recycle;
 import com.plant.materials.Glass;
 import com.plant.products.GlassProduct;
 import com.plant.products.Product;
+import com.plant.terminal.ConsoleColors;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,14 +15,14 @@ public class GlassHandler<GLASS extends Glass> extends Handler {
 
     public Product recycle() {
         if (!inputGlassList.isEmpty()) {
-            System.out.println("Glass handler: Recycling glass...");
+            System.out.println(ConsoleColors.ANSI_CYAN + "Glass handler: " + ConsoleColors.ANSI_RESET + "Recycling glass...");
             int outWeight = 0;
             for (Glass glass : inputGlassList) {
                 glass.setWeight(glass.getWeight() * 2 / 3);
                 outWeight += glass.getWeight();
             }
             glassProduct = new GlassProduct(outWeight);
-            System.out.println("Glass handler: Output glass product\n" + glassProduct);
+            System.out.println(ConsoleColors.ANSI_CYAN + "Glass handler: " + ConsoleColors.ANSI_RESET + "Output glass product\n" + glassProduct);
             inputGlassList.clear();
             return glassProduct;
         }

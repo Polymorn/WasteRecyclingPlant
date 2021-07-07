@@ -5,6 +5,7 @@ import com.plant.prefactory.Compressor;
 import com.plant.prefactory.GarbageSorter;
 import com.plant.recycle.Handler;
 import com.plant.recycle.Resolver;
+import com.plant.terminal.ConsoleColors;
 
 public class Plant {
 
@@ -23,7 +24,8 @@ public class Plant {
     }
 
     public void recycle(Container container) {
-        System.out.println("Plant: Incoming new garbage container: \n" + garbageContainer);
+        System.out.println(ConsoleColors.ANSI_WHITE + "/////////////////////////////////////////////////////////////////////////////////////////" + ConsoleColors.ANSI_RESET);
+        System.out.println(ConsoleColors.ANSI_YELLOW + "Plant: " + ConsoleColors.ANSI_RESET + "Incoming new garbage container: \n" + garbageContainer);
 
         garbageSorter.sort(garbageContainer);
         compressor.compress();
