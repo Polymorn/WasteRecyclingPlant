@@ -50,6 +50,6 @@ public abstract class Container<MATERIAL extends Material> {
     public String toString() {
         return "\tContainer {" +
                 "materials=" + materials +
-                "} FULL WEIGHT=" + weight;
+                "}";
     }
 }

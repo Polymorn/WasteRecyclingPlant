@@ -1,26 +1,20 @@
-package com.plant.materials;
+package com.plant.products;
 
-public abstract class Material {
-
+public abstract class Product {
     private int weight;
 
     public int getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    public Material(int weight) {
+    public Product(int weight) {
         this.weight = weight;
     }
 
     @Override
     public String toString() {
-        return "Material{" +
+        return "\tProduct{" +
                 "weight=" + weight +
                 '}';
     }
-
 }

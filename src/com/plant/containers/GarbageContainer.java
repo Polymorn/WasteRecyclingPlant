@@ -1,4 +1,6 @@
 package com.plant.containers;
 
-public class GarbageContainer extends Container {
+import com.plant.materials.Material;
+
+public class GarbageContainer<MATERIAL extends Material> extends Container {
 }

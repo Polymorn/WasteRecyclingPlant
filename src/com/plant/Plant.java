@@ -1,36 +1,35 @@
 package com.plant;
 
 import com.plant.containers.Container;
-import com.plant.containers.GarbageContainer;
-import com.plant.materials.Glass;
-import com.plant.materials.Material;
-import com.plant.materials.Paper;
-import com.plant.materials.Plastic;
+import com.plant.prefactory.Compressor;
+import com.plant.prefactory.GarbageSorter;
 import com.plant.recycle.Handler;
 import com.plant.recycle.Resolver;
 
 public class Plant {
 
     private Container garbageContainer;
-    private Handler handler;
+    private Compressor compressor;
+    private GarbageSorter garbageSorter;
     private Resolver resolver;
+    private Handler handler;
 
-    public void work() {
-        initialize();
-
-        garbageContainer.add(new Glass(30));
-        garbageContainer.add(new Plastic(14));
-        garbageContainer.add(new Paper(10));
-        System.out.println("Plant: Incoming new garbage container: \n" + garbageContainer);
-
-        resolver.resolve(garbageContainer);
-        handler.recycle();
+    public Plant(Container container, Compressor compressor, GarbageSorter garbageSorter, Resolver resolver, Handler handler) {
+        this.garbageContainer = container;
+        this.compressor = compressor;
+        this.garbageSorter = garbageSorter;
+        this.resolver = resolver;
+        this.handler = handler;
     }
 
-    public void initialize() {
-        garbageContainer = new GarbageContainer();
-        handler = new Handler();
-        resolver = new Resolver(handler);
+    public void recycle(Container container) {
+        System.out.println("Plant: Incoming new garbage container: \n" + garbageContainer);
 
+        garbageSorter.sort(garbageContainer);
+        compressor.compress();
+
+        resolver.resolve(compressor.getGlassContainer());
+        resolver.resolve(compressor.getPaperContainer());
+        resolver.resolve(compressor.getPlasticContainer());
     }
 }
